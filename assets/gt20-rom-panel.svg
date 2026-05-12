@@ -1,0 +1,67 @@
+<svg width="900" height="720" viewBox="0 0 900 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GT 20 Pro ROM panel artwork">
+  <defs>
+    <linearGradient id="screen" x1="268" y1="112" x2="639" y2="624" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1c2b35"/>
+      <stop offset="0.52" stop-color="#111820"/>
+      <stop offset="1" stop-color="#090b0f"/>
+    </linearGradient>
+    <linearGradient id="accentA" x1="210" y1="134" x2="712" y2="573" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#36e39d"/>
+      <stop offset="0.5" stop-color="#43d4ff"/>
+      <stop offset="1" stop-color="#ffcd4d"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="322" y1="238" x2="575" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#20303d"/>
+      <stop offset="1" stop-color="#111720"/>
+    </linearGradient>
+    <filter id="softShadow" x="107" y="32" width="666" height="664" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="32"/>
+      <feGaussianBlur stdDeviation="38"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <path d="M128 522H770" stroke="#233241" stroke-width="2" stroke-linecap="round"/>
+  <path d="M188 584H705" stroke="#1c2733" stroke-width="2" stroke-linecap="round"/>
+  <g opacity="0.62">
+    <path d="M118 187H247" stroke="#36E39D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M653 194H803" stroke="#43D4FF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M673 468H804" stroke="#FFCD4D" stroke-width="4" stroke-linecap="round"/>
+    <path d="M92 404H219" stroke="#FF6157" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="92" cy="187" r="10" fill="#36E39D"/>
+    <circle cx="831" cy="194" r="10" fill="#43D4FF"/>
+    <circle cx="834" cy="468" r="10" fill="#FFCD4D"/>
+    <circle cx="66" cy="404" r="10" fill="#FF6157"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="254" y="74" width="380" height="560" rx="46" fill="#07090D"/>
+    <rect x="274" y="96" width="340" height="516" rx="34" fill="url(#screen)" stroke="url(#accentA)" stroke-width="3"/>
+    <rect x="405" y="111" width="82" height="8" rx="4" fill="#2A3744"/>
+    <circle cx="445" cy="562" r="22" fill="#111720" stroke="#273848" stroke-width="2"/>
+  </g>
+
+  <rect x="319" y="196" width="252" height="252" rx="28" fill="url(#chip)" stroke="#334657" stroke-width="2"/>
+  <rect x="346" y="223" width="198" height="198" rx="20" fill="#0C1118" stroke="#36E39D" stroke-width="2"/>
+  <path d="M381 282H512" stroke="#43D4FF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M381 332H492" stroke="#36E39D" stroke-width="12" stroke-linecap="round"/>
+  <path d="M381 382H460" stroke="#FFCD4D" stroke-width="12" stroke-linecap="round"/>
+  <text x="445" y="176" text-anchor="middle" fill="#F6F8FB" font-family="Arial, sans-serif" font-size="34" font-weight="800" letter-spacing="0">GT 20 PRO</text>
+  <text x="445" y="498" text-anchor="middle" fill="#AAB5C3" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="0">ROM LIBRARY</text>
+
+  <g opacity="0.78">
+    <path d="M254 273H190V229" stroke="#36E39D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M634 294H696V248" stroke="#43D4FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M255 430H171V474" stroke="#FF6157" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M634 421H724V491" stroke="#FFCD4D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="190" cy="229" r="8" fill="#36E39D"/>
+    <circle cx="696" cy="248" r="8" fill="#43D4FF"/>
+    <circle cx="171" cy="474" r="8" fill="#FF6157"/>
+    <circle cx="724" cy="491" r="8" fill="#FFCD4D"/>
+  </g>
+</svg>

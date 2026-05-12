@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GT 20 Pro ROM Downloads</title>
+    <meta
+      name="description"
+      content="GT 20 Pro ROM download library for stock, port, and custom ROMs."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="GT 20 Pro ROM Downloads home">
+          <span class="brand-mark" aria-hidden="true">GT</span>
+          <span>
+            <strong>GT 20 Pro</strong>
+            <small>ROM Downloads</small>
+          </span>
+        </a>
+
+        <nav class="topnav" aria-label="ROM sections">
+          <a href="#category/stock">Stock</a>
+          <a href="#category/port">Port</a>
+          <a href="#category/custom">Custom</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">GT 20 Pro ROM Hub</p>
+            <h1 id="hero-title">Stock, port, and custom ROMs in one clean place.</h1>
+            <p>
+              Browse GT 20 Pro builds by ROM type, open the file page, and choose
+              the download or flashing option that matches your setup.
+            </p>
+            <div class="hero-actions" aria-label="Main ROM categories">
+              <a class="button primary" href="#category/stock">Stock ROMs</a>
+              <a class="button" href="#category/port">Port ROMs</a>
+              <a class="button ghost" href="#category/custom">Custom ROMs</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <img src="assets/gt20-rom-panel.svg" alt="" />
+          </div>
+        </section>
+
+        <section class="library-panel" aria-live="polite">
+          <div class="section-head">
+            <button id="backButton" class="back-button" type="button" hidden>
+              Back
+            </button>
+            <div>
+              <p id="viewEyebrow" class="eyebrow">ROM Library</p>
+              <h2 id="viewTitle">Choose a ROM type</h2>
+              <p id="viewSubtitle">
+                Start with stock firmware, ported XOS builds, or custom ROM files.
+              </p>
+            </div>
+          </div>
+
+          <div id="app" class="app-view"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>GT 20 Pro ROM Downloads</span>
+        <span>Stock ROMs / Port ROMs / Custom ROMs</span>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
