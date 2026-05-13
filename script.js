@@ -21,8 +21,8 @@ const romData = {
           {
             title: "Flashable",
             description: "Recovery flashable package for TWRP or OFOX.",
-            link: "#",
-            label: "Flashable link pending",
+            link: "https://sourceforge.net/projects/rama982/files/RECOVERY/X6871/XOS15.1.0/OrangeFox-R11.3_15.1.0-Unofficial-X6871.img",
+            label: "Available",
           },
           {
             title: "Toolable",
@@ -53,10 +53,10 @@ const romData = {
         intro:
           "XOS 16.1 port ROM entry for GT 20 Pro. Add the final description and download link when the build is ready.",
         download: "#",
-        downloadLabel: "Download link pending",
+        downloadLabel: "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view",
         sections: [
           {
-            title: "Notes",
+            title: "XOS 16.1 for GT 20 Pro — Ported from Ported From NOTE EDGE by Mehrnn | 64-Bit Only",
             items: [
               "Port ROM entry created for the download page.",
               "Replace this text with final changelog, bugs, and flashing steps.",
