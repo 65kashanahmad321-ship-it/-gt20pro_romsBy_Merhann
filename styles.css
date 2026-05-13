@@ -472,6 +472,58 @@ h1 {
   line-height: 1.65;
 }
 
+.support-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 34px;
+  padding: 24px;
+  border: 1px solid rgba(54, 227, 157, 0.2);
+  border-radius: 10px;
+  background:
+    linear-gradient(135deg, rgba(54, 227, 157, 0.1), rgba(67, 212, 255, 0.05)),
+    rgba(17, 23, 32, 0.78);
+}
+
+.support-panel h2 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.support-panel p:not(.eyebrow) {
+  margin-bottom: 0;
+  color: var(--muted);
+}
+
+.upi-box {
+  display: grid;
+  min-width: min(100%, 320px);
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(9, 11, 15, 0.55);
+}
+
+.upi-box span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.upi-box strong {
+  color: var(--green);
+  font-size: 1.25rem;
+  overflow-wrap: anywhere;
+}
+
+.upi-box .button {
+  width: fit-content;
+}
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -549,6 +601,15 @@ h1 {
 
   .detail-title {
     flex-direction: column;
+  }
+
+  .support-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .upi-box .button {
+    width: 100%;
   }
 
   .footer {
