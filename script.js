@@ -4,7 +4,7 @@ const romData = {
     eyebrow: "Official Firmware",
     accent: "#36e39d",
     icon: "ST",
-    summary: "Original XOS firmware packages for GT 20 Pro.",
+    summary: "Original XOS firmware packages for INFINIX GT20 PRO.",
     description:
       "Use stock builds when you want factory firmware, repair files, or a clean base before moving to port ROMs.",
     roms: [
@@ -12,11 +12,11 @@ const romData = {
         id: "xos-15-1-2-165",
         title: "XOS 15.1.2.165",
         status: "Stock build",
-        source: "GT 20 Pro",
+        source: "INFINIX GT20 PRO",
         base: "Official firmware",
         architecture: "64-Bit",
         intro:
-          "Stock XOS 15.1.2.165 package for GT 20 Pro. Open either the flashable package or the tool package when the download links are added.",
+          "Stock XOS 15.1.2.165 package for INFINIX GT20 PRO. Open either the flashable package or the tool package when the download links are added.",
         options: [
           {
             title: "Flashable",
@@ -36,11 +36,11 @@ const romData = {
         id: "xos-15-1-2-145",
         title: "XOS 15.1.2.145",
         status: "Stock build",
-        source: "GT 20 Pro",
+        source: "INFINIX GT20 PRO",
         base: "Official firmware",
         architecture: "64-Bit",
         intro:
-          "Stock XOS 15.1.2.145 package for GT 20 Pro. Open either the flashable package or the tool package when the download links are added.",
+          "Stock XOS 15.1.2.145 package for INFINIX GT20 PRO. Open either the flashable package or the tool package when the download links are added.",
         options: [
           {
             title: "Flashable",
@@ -60,11 +60,11 @@ const romData = {
         id: "xosflashable-15-1-2-129",
         title: "xosflashable_15.1.2.129",
         status: "Stock build",
-        source: "GT 20 Pro",
+        source: "INFINIX GT20 PRO",
         base: "Official firmware",
         architecture: "64-Bit",
         intro:
-          "Stock xosflashable_15.1.2.129 package for GT 20 Pro. Open either the flashable package or the tool package when the download links are added.",
+          "Stock xosflashable_15.1.2.129 package for INFINIX GT20 PRO. Open either the flashable package or the tool package when the download links are added.",
         options: [
           {
             title: "Flashable",
@@ -87,7 +87,7 @@ const romData = {
     eyebrow: "Ported XOS Builds",
     accent: "#43d4ff",
     icon: "PR",
-    summary: "XOS port ROMs prepared for GT 20 Pro.",
+    summary: "XOS port ROMs prepared for INFINIX GT20 PRO.",
     description:
       "Port ROMs created by Mehrann, with flashing notes, required files, changelogs, and known issues.",
     roms: [
@@ -100,7 +100,7 @@ const romData = {
         base: "Based on any A15 vendor",
         architecture: "64-Bit Only",
         intro:
-          "XOS 16.1 for GT 20 Pro, ported from Note Edge by Mehrnn.",
+          "XOS 16.1 for INFINIX GT20 PRO, ported from Note Edge by Mehrnn.",
         download:
           "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view",
         downloadLabel: "Download XOS16.1-v2-X6871-Mehrnn.zip",
@@ -152,7 +152,7 @@ const romData = {
         base: "Based on any A15 vendor",
         architecture: "64-Bit Only",
         intro:
-          "XOS 16.2.0 for GT 20 Pro, ported by Mehrnn. Do not compare with stock. Can dirty flash from the old Note 50s port.",
+          "XOS 16.2.0 for INFINIX GT20 PRO, ported by Mehrnn. Do not compare with stock. Can dirty flash from the old Note 50s port.",
         download:
           "https://drive.google.com/file/d/1JdifWk1U-Tqw83Pb0PbUPvFqJSJLoO5e/view?usp=sharing",
         downloadLabel: "Download ROM",
@@ -212,7 +212,7 @@ const romData = {
         base: "Based on FW 15.1.2.145-165",
         architecture: "64-Bit Only",
         intro:
-          "XOS 16.2.0 for GT 20 Pro, ported by Mehrnn. Do not compare with stock.",
+          "XOS 16.2.0 for INFINIX GT20 PRO, ported by Mehrnn. Do not compare with stock.",
         download:
           "https://drive.google.com/file/d/1tSSry1rRWioJZi-c9Dg6k1zYBie5qql_/view",
         downloadLabel: "Download ROM",
@@ -263,7 +263,7 @@ const romData = {
     icon: "CU",
     summary: "A reserved section for AOSP, GSI, or community ROM files.",
     description:
-      "Custom ROM cards can be added here when a build is ready for GT 20 Pro.",
+      "Custom ROM cards can be added here when a build is ready for INFINIX GT20 PRO.",
     roms: [
       {
         id: "pixelos-android-16-hotfix",
@@ -274,7 +274,7 @@ const romData = {
         base: "Based on XOS 15 Firmware",
         architecture: "Android 16",
         intro:
-          "PixelOS hotfix build for Infinix GT 20 Pro by fjrXTR.",
+          "PixelOS hotfix build for INFINIX GT20 PRO by fjrXTR.",
         download:
           "https://sourceforge.net/projects/gabutbuild/files/X6871/pos-16/20260308/",
         downloadLabel: "Download PixelOS",
@@ -329,7 +329,7 @@ const romData = {
         base: "Based on XOS 15 Firmware",
         architecture: "Android 16",
         intro:
-          "AxionAOSP 2.4 Solace build for Infinix GT 20 Pro by fjrXTR.",
+          "AxionAOSP 2.4 Solace build for INFINIX GT20 PRO by fjrXTR.",
         download:
           "https://sourceforge.net/projects/gabutbuild/files/X6871/axion-16/",
         downloadLabel: "Download AxionAOSP",
@@ -392,6 +392,8 @@ const backButton = document.querySelector("#backButton");
 const viewEyebrow = document.querySelector("#viewEyebrow");
 const viewTitle = document.querySelector("#viewTitle");
 const viewSubtitle = document.querySelector("#viewSubtitle");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let revealObserver;
 
 function escapeHtml(value) {
   return String(value)
@@ -409,6 +411,19 @@ function actionLink(url, label, extraClass = "") {
   }
 
   return `<a class="button ${extraClass}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${safeLabel}</a>`;
+}
+
+function setAppView(html) {
+  const hasContent = app.innerHTML.trim().length > 0;
+  const delay = hasContent && !prefersReducedMotion ? 120 : 0;
+
+  if (delay) app.classList.add("is-switching");
+
+  window.setTimeout(() => {
+    app.innerHTML = html;
+    app.classList.remove("is-switching");
+    hydrateMotion(app);
+  }, delay);
 }
 
 function setHeader({ eyebrow, title, subtitle, showBack = false, backTarget = "#home" }) {
@@ -433,14 +448,14 @@ function renderHome() {
   });
   setActiveNav("");
 
-  app.innerHTML = `
+  setAppView(`
     <div class="category-grid">
       ${Object.entries(romData)
         .map(([id, category]) => {
           const count = category.roms.length;
           const romText = count === 1 ? "1 ROM" : `${count} ROMs`;
           return `
-            <article class="card" style="--accent: ${category.accent}">
+            <article class="card interactive-tilt reveal-item" style="--accent: ${category.accent}">
               <div class="card-top">
                 <span class="card-icon" aria-hidden="true">${category.icon}</span>
                 <span class="count-pill">${romText}</span>
@@ -453,7 +468,7 @@ function renderHome() {
         })
         .join("")}
     </div>
-  `;
+  `);
 }
 
 function renderCategory(categoryId) {
@@ -473,24 +488,29 @@ function renderCategory(categoryId) {
   setActiveNav(categoryId);
 
   if (!category.roms.length) {
-    app.innerHTML = `
+    setAppView(`
       <div class="empty-state">
         <div>
           <h3>No custom ROMs added yet</h3>
-          <p>This section is ready for future GT 20 Pro custom ROM builds.</p>
+          <p>This section is ready for future INFINIX GT20 PRO custom ROM builds.</p>
         </div>
       </div>
-    `;
+    `);
     return;
   }
 
-  app.innerHTML = `
+  setAppView(`
     <div class="rom-grid">
       ${category.roms
         .map((rom) => {
           const subtitle = rom.subtitle ? `<p>${escapeHtml(rom.subtitle)}</p>` : "";
           return `
-            <article class="card rom-card" style="--accent: ${category.accent}">
+            <article class="card rom-card interactive-tilt reveal-item" style="--accent: ${category.accent}">
+              <div class="rom-thumb">
+                <span>${escapeHtml(category.eyebrow)}</span>
+                <strong>${escapeHtml(rom.title)}</strong>
+                <em>${escapeHtml(rom.source)}</em>
+              </div>
               <div class="card-top">
                 <span class="card-icon" aria-hidden="true">${category.icon}</span>
                 <span class="status-pill">${escapeHtml(rom.status)}</span>
@@ -508,7 +528,7 @@ function renderCategory(categoryId) {
         })
         .join("")}
     </div>
-  `;
+  `);
 }
 
 function renderStockOptions(rom, categoryId) {
@@ -517,7 +537,7 @@ function renderStockOptions(rom, categoryId) {
       ${rom.options
         .map(
           (option) => `
-            <article class="option-card" style="--accent: ${romData[categoryId].accent}">
+            <article class="option-card reveal-item" style="--accent: ${romData[categoryId].accent}">
               <h3>${escapeHtml(option.title)}</h3>
               <p>${escapeHtml(option.description)}</p>
               ${actionLink(option.link, option.label)}
@@ -533,12 +553,17 @@ function renderSections(sections = []) {
   return sections
     .map((section) => {
       const listTag = section.ordered ? "ol" : "ul";
+      const isLog =
+        section.title.toLowerCase().includes("changelog") ||
+        section.title.toLowerCase().includes("what's new");
       const toneClass =
         section.tone === "note" ? "note-card" : section.tone === "warning" ? "warning-card" : "";
+      const sectionClass = `${toneClass} ${isLog ? "change-log-card" : ""}`.trim();
+      const listClass = isLog ? ` class="timeline-list"` : "";
       return `
-        <section class="detail-card ${toneClass}">
+        <section class="detail-card reveal-item ${sectionClass}">
           <h3>${escapeHtml(section.title)}</h3>
-          <${listTag}>
+          <${listTag}${listClass}>
             ${section.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
           </${listTag}>
         </section>
@@ -568,9 +593,9 @@ function renderRom(categoryId, romId) {
     .map((link) => actionLink(link.url, link.label, "ghost"))
     .join("");
 
-  app.innerHTML = `
+  setAppView(`
     <div class="detail-layout">
-      <article class="detail-card">
+      <article class="detail-card reveal-item">
         <div class="detail-title">
           <h3>${escapeHtml(rom.title)}</h3>
           <span class="status-pill">${escapeHtml(rom.status)}</span>
@@ -586,17 +611,108 @@ function renderRom(categoryId, romId) {
           ${extraLinks}
         </div>
       </article>
-      <aside class="detail-card note-card">
+      <aside class="detail-card note-card reveal-item">
         <h3>Before flashing</h3>
         <ul>
           <li>Take a full backup before changing ROMs.</li>
-          <li>Use the exact file for GT 20 Pro.</li>
+          <li>Use the exact file for INFINIX GT20 PRO.</li>
           <li>Read bugs and requirements before rebooting.</li>
         </ul>
       </aside>
       ${rom.options ? renderStockOptions(rom, categoryId) : renderSections(rom.sections)}
     </div>
-  `;
+  `);
+}
+
+function hydrateMotion(root = document) {
+  const revealItems = root.querySelectorAll(".reveal, .reveal-item");
+
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    return;
+  }
+
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
+    );
+  }
+
+  revealItems.forEach((item, index) => {
+    item.style.transitionDelay = `${Math.min(index * 45, 180)}ms`;
+    revealObserver.observe(item);
+  });
+}
+
+function updateScrollProgress() {
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable <= 0 ? 0 : (window.scrollY / scrollable) * 100;
+  document.documentElement.style.setProperty("--scroll-progress", `${progress}%`);
+}
+
+function initMotionSystem() {
+  document.documentElement.classList.add("motion-ready");
+  hydrateMotion(document);
+  updateScrollProgress();
+
+  if (prefersReducedMotion) return;
+
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+
+  document.addEventListener(
+    "pointermove",
+    (event) => {
+      const width = window.innerWidth || 1;
+      const height = window.innerHeight || 1;
+      const ambientX = ((event.clientX / width) - 0.5) * 24;
+      const ambientY = ((event.clientY / height) - 0.5) * 18;
+      document.documentElement.style.setProperty("--ambient-x", `${ambientX}px`);
+      document.documentElement.style.setProperty("--ambient-y", `${ambientY}px`);
+
+      const interactive = event.target.closest(".interactive-tilt, .card");
+      if (interactive) {
+        const rect = interactive.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        interactive.style.setProperty("--tilt-x", `${(x - 0.5) * 7}deg`);
+        interactive.style.setProperty("--tilt-y", `${(0.5 - y) * 7}deg`);
+        interactive.style.setProperty("--glare-x", `${x * 100}%`);
+        interactive.style.setProperty("--glare-y", `${y * 100}%`);
+      }
+
+      const magnetic = event.target.closest(".button, .back-button, .topnav a");
+      if (magnetic) {
+        const rect = magnetic.getBoundingClientRect();
+        const x = event.clientX - (rect.left + rect.width / 2);
+        const y = event.clientY - (rect.top + rect.height / 2);
+        magnetic.style.setProperty("--magnet-x", `${x * 0.1}px`);
+        magnetic.style.setProperty("--magnet-y", `${y * 0.1}px`);
+        magnetic.style.setProperty("--glare-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+        magnetic.style.setProperty("--glare-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+      }
+    },
+    { passive: true },
+  );
+
+  document.addEventListener(
+    "pointerout",
+    (event) => {
+      const target = event.target.closest(".interactive-tilt, .card, .button, .back-button, .topnav a");
+      if (!target || target.contains(event.relatedTarget)) return;
+      target.style.removeProperty("--tilt-x");
+      target.style.removeProperty("--tilt-y");
+      target.style.removeProperty("--magnet-x");
+      target.style.removeProperty("--magnet-y");
+    },
+    { passive: true },
+  );
 }
 
 function route() {
@@ -626,4 +742,5 @@ backButton.addEventListener("click", () => {
 });
 
 window.addEventListener("hashchange", route);
+initMotionSystem();
 route();
