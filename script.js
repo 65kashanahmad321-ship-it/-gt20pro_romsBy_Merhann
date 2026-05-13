@@ -52,18 +52,51 @@ const romData = {
         architecture: "64-Bit",
         intro:
           "XOS 16.1 port ROM entry for GT 20 Pro. Add the final description and download link when the build is ready.",
-        download: "#",
-        downloadLabel: "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view",
+        download: "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view",
+        downloadLabel: "Download ROM",
+        extraLinks: [
+          {
+            label: "Bypass Charging Fix",
+            url: "https://t.me/xos16x6871portlinks/23",
+          },
+          {
+            label: "Vbmeta Disabler",
+            url: "https://t.me/infinixgt20proid/14628",
+          },
+        ],
         sections: [
           {
-            title: "XOS 16.1 for GT 20 Pro — Ported from Ported From NOTE EDGE by Mehrnn | 64-Bit Only",
+            title: "Changelogs",
+            items: ["Fixed device uncertified"],
+          },
+          {
+            title: "Known bugs",
+            items: ["Bypass Charging. Use the linked fix."],
+            tone: "warning",
+          },
+          {
+            title: "Required things",
+            items: ["Vbmeta Disabler", "Working brain"],
+            tone: "note",
+          },
+          {
+            title: "Flashing process",
+            ordered: true,
             items: [
-              "Port ROM entry created for the download page.",
-              "Replace this text with final changelog, bugs, and flashing steps.",
+              "Reboot to Recovery, TWRP or OFOX.",
+              "Flash Vbmeta Disabler.",
+              "Flash ROM.zip.",
+              "Format Data.",
+              "Reboot System.",
+            ],
+          },
+          {
+            title: "Credits",
+            items: [
+              "Mehran",
             ],
           },
         ],
-      },
       {
         id: "xos-16-2-note-50s",
         title: "XOS 16.2 Port",
@@ -116,10 +149,7 @@ const romData = {
           {
             title: "Credits",
             items: [
-              "Allah (S.W.T)",
-              "@satyam_rai1",
-              "@ramabondanp",
-              "Testers and contributions",
+              "Mehran",
             ],
           },
         ],
