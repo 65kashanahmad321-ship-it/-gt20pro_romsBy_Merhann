@@ -21,8 +21,56 @@ const romData = {
           {
             title: "Flashable",
             description: "Recovery flashable package for TWRP or OFOX.",
-            link: "https://sourceforge.net/projects/rama982/files/RECOVERY/X6871/XOS15.1.0/OrangeFox-R11.3_15.1.0-Unofficial-X6871.img",
-            label: "Available",
+            link: "https://drive.google.com/file/d/1ywfInXh2Oxdo593YCIFLCLJvzPUoYFaA/view",
+            label: "Download Flashable",
+          },
+          {
+            title: "Toolable",
+            description: "Firmware package for flashing with a desktop flashing tool.",
+            link: "#",
+            label: "Toolable link pending",
+          },
+        ],
+      },
+      {
+        id: "xos-15-1-2-145",
+        title: "XOS 15.1.2.145",
+        status: "Stock build",
+        source: "GT 20 Pro",
+        base: "Official firmware",
+        architecture: "64-Bit",
+        intro:
+          "Stock XOS 15.1.2.145 package for GT 20 Pro. Open either the flashable package or the tool package when the download links are added.",
+        options: [
+          {
+            title: "Flashable",
+            description: "Recovery flashable package for TWRP or OFOX.",
+            link: "https://drive.google.com/file/d/1npZEymyco7y1b_qXNPC6enCf6OBlRFEG/view?usp=sharing",
+            label: "Download Flashable",
+          },
+          {
+            title: "Toolable",
+            description: "Firmware package for flashing with a desktop flashing tool.",
+            link: "#",
+            label: "Toolable link pending",
+          },
+        ],
+      },
+      {
+        id: "xosflashable-15-1-2-129",
+        title: "xosflashable_15.1.2.129",
+        status: "Stock build",
+        source: "GT 20 Pro",
+        base: "Official firmware",
+        architecture: "64-Bit",
+        intro:
+          "Stock xosflashable_15.1.2.129 package for GT 20 Pro. Open either the flashable package or the tool package when the download links are added.",
+        options: [
+          {
+            title: "Flashable",
+            description: "Recovery flashable package for TWRP or OFOX.",
+            link: "https://drive.google.com/file/d/12bj6CQlYwqTmOngaxxWM3HYegaPzx5c8/view?usp=sharing",
+            label: "Download Flashable",
           },
           {
             title: "Toolable",
@@ -41,49 +89,46 @@ const romData = {
     icon: "PR",
     summary: "XOS port ROMs prepared for GT 20 Pro.",
     description:
-      "Port builds from newer Infinix devices, with flashing notes, required files, changelogs, and known issues.",
+      "Port ROMs created by Mehrann, with flashing notes, required files, changelogs, and known issues.",
     roms: [
       {
         id: "xos-16-1",
         title: "XOS 16.1",
-        status: "Port ROM",
-        source: "GT 20 Pro",
-        base: "Add base firmware",
-        architecture: "64-Bit",
+        subtitle: "Ported from Note Edge",
+        status: "Stable Release v2",
+        source: "Note Edge",
+        base: "Based on any A15 vendor",
+        architecture: "64-Bit Only",
         intro:
-          "XOS 16.1 port ROM entry for GT 20 Pro. Add the final description and download link when the build is ready.",
-        download: "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view",
-        downloadLabel: "Download ROM",
-        extraLinks: [
-          {
-            label: "Bypass Charging Fix",
-            url: "https://t.me/xos16x6871portlinks/23",
-          },
-          {
-            label: "Vbmeta Disabler",
-            url: "https://t.me/infinixgt20proid/14628",
-          },
-        ],
+          "XOS 16.1 for GT 20 Pro, ported from Note Edge by Mehrnn.",
+        download:
+          "https://drive.google.com/file/d/1T91Z207IHD_tfzvU6-TFUviwjxIchSxW/view",
+        downloadLabel: "Download XOS16.1-v2-X6871-Mehrnn.zip",
         sections: [
           {
-            title: "Changelogs",
-            items: ["Fixed device uncertified"],
+            title: "Base & specs",
+            items: ["Base: Any A15 Vendor", "Android: Android 16"],
           },
           {
-            title: "Known bugs",
-            items: ["Bypass Charging. Use the linked fix."],
-            tone: "warning",
+            title: "What's new",
+            items: [
+              "Enforcing",
+              "Mem Fusion Fixed",
+              "Media Fixed",
+              "Visual Lag Fixed",
+              "Charging Fixed",
+            ],
           },
           {
-            title: "Required things",
+            title: "Requirements",
             items: ["Vbmeta Disabler", "Working brain"],
             tone: "note",
           },
           {
-            title: "Flashing process",
+            title: "Flashing steps",
             ordered: true,
             items: [
-              "Reboot to Recovery, TWRP or OFOX.",
+              "Reboot to Recovery, TWRP or OrangeFox.",
               "Flash Vbmeta Disabler.",
               "Flash ROM.zip.",
               "Format Data.",
@@ -93,10 +138,11 @@ const romData = {
           {
             title: "Credits",
             items: [
-              "Mehran",
+              "Mehrnn",
             ],
           },
         ],
+      },
       {
         id: "xos-16-2-note-50s",
         title: "XOS 16.2 Port",
@@ -149,7 +195,10 @@ const romData = {
           {
             title: "Credits",
             items: [
-              "Mehran",
+              "Allah (S.W.T)",
+              "@satyam_rai1",
+              "@ramabondanp",
+              "Testers and contributions",
             ],
           },
         ],
@@ -165,7 +214,7 @@ const romData = {
         intro:
           "XOS 16.2.0 for GT 20 Pro, ported by Mehrnn. Do not compare with stock.",
         download:
-          "https://drive.google.com/file/d/1JdifWk1U-Tqw83Pb0PbUPvFqJSJLoO5e/view?usp=sharing",
+          "https://drive.google.com/file/d/1tSSry1rRWioJZi-c9Dg6k1zYBie5qql_/view",
         downloadLabel: "Download ROM",
         extraLinks: [
           {
@@ -215,7 +264,126 @@ const romData = {
     summary: "A reserved section for AOSP, GSI, or community ROM files.",
     description:
       "Custom ROM cards can be added here when a build is ready for GT 20 Pro.",
-    roms: [],
+    roms: [
+      {
+        id: "pixelos-android-16-hotfix",
+        title: "PixelOS",
+        subtitle: "HOTFIX / UNOFFICIAL / Android 16",
+        status: "Released 09/03/2026",
+        source: "PixelOS",
+        base: "Based on XOS 15 Firmware",
+        architecture: "Android 16",
+        intro:
+          "PixelOS hotfix build for Infinix GT 20 Pro by fjrXTR.",
+        download:
+          "https://sourceforge.net/projects/gabutbuild/files/X6871/pos-16/20260308/",
+        downloadLabel: "Download PixelOS",
+        extraLinks: [
+          {
+            label: "Screenshots",
+            url: "https://t.me/xtrbasementt/6229",
+          },
+          {
+            label: "Donate",
+            url: "https://sociabuzz.com/v1llhaze",
+          },
+        ],
+        sections: [
+          {
+            title: "Changelogs",
+            items: ["Fixed Bad Performance"],
+          },
+          {
+            title: "Known issues",
+            items: ["U tell me (gib logs or gtfo)"],
+            tone: "warning",
+          },
+          {
+            title: "Notes",
+            items: [
+              "User Build",
+              "Based on XOS 15 Firmware",
+              "Do NOT replace the kernel (248 below) or else hotspot breaks",
+              "Recommended to use PixelOS Recovery",
+              "Signed & GApps Build",
+              "Please make sure that you made IMEI backup, you are on right recovery and right firmware version.",
+            ],
+            tone: "note",
+          },
+          {
+            title: "Credits",
+            items: [
+              "Thx to xyzuniverse, shirayuki39, irawansalt, xiaomi-mt6895-devs, lisaa-devs, Nothing-2A Devs for references commit & help me",
+              "Thx to @rianixia, irawansalt for help me to fix FOD",
+              "Thx to @MBuTT3178 @Laynsb for test & support me",
+            ],
+          },
+        ],
+      },
+      {
+        id: "axion-aosp-2-4-solace",
+        title: "AxionAOSP 2.4 Solace",
+        subtitle: "UNOFFICIAL / Android 16",
+        status: "Released 04/03/2026",
+        source: "AxionAOSP",
+        base: "Based on XOS 15 Firmware",
+        architecture: "Android 16",
+        intro:
+          "AxionAOSP 2.4 Solace build for Infinix GT 20 Pro by fjrXTR.",
+        download:
+          "https://sourceforge.net/projects/gabutbuild/files/X6871/axion-16/",
+        downloadLabel: "Download AxionAOSP",
+        extraLinks: [
+          {
+            label: "Screenshots",
+            url: "https://t.me/xtrbasementt/5322",
+          },
+          {
+            label: "Donate",
+            url: "https://sociabuzz.com/v1llhaze",
+          },
+        ],
+        sections: [
+          {
+            title: "Changelogs",
+            items: [
+              "Initial Build",
+              "Added Dolby Atmos",
+              "Fixed BT Audio issue",
+              "Fixed Hotspot Issue",
+              "Fixed USB issue again",
+              "Fixed UI Shuttering",
+              "Removed ViPER4Android",
+              "Many more under the hood changes and optimization",
+            ],
+          },
+          {
+            title: "Known issues",
+            items: ["U tell me (gib logs or gtfo)"],
+            tone: "warning",
+          },
+          {
+            title: "Notes",
+            items: [
+              "Based on XOS 15 Firmware",
+              "Do NOT replace the kernel (248 below) or else hotspot breaks",
+              "Recommended to use PixelOS Recovery",
+              "Signed & GApps Build",
+              "Please make sure that you made IMEI backup, you are on right recovery and right firmware version.",
+            ],
+            tone: "note",
+          },
+          {
+            title: "Credits",
+            items: [
+              "Thx to xyzuniverse, shirayuki39, irawansalt, xiaomi-mt6895-devs, lisaa-devs, Nothing-2A Devs for references commit & help me",
+              "Thx to @rianixia, irawansalt for help me to fix FOD",
+              "Thx to @MBuTT3178 @yashtiwari456 Xiswap for test & support me",
+            ],
+          },
+        ],
+      },
+    ],
   },
 };
 
