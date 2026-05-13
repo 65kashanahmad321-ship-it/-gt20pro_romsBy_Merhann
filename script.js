@@ -711,6 +711,18 @@ function schedulePointerEffects(event) {
   });
 }
 
+function scrollLibraryIntoView() {
+  const libraryPanel = document.querySelector(".library-panel");
+  if (!libraryPanel) return;
+
+  window.requestAnimationFrame(() => {
+    libraryPanel.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  });
+}
+
 function initMotionSystem() {
   document.documentElement.classList.add("motion-ready");
   hydrateMotion(document);
@@ -733,6 +745,7 @@ function initMotionSystem() {
     (event) => {
       const target = event.target.closest(".interactive-tilt, .card, .button, .back-button, .topnav a");
       if (!target || target.contains(event.relatedTarget)) return;
+      latestPointerEvent = null;
       target.style.removeProperty("--tilt-x");
       target.style.removeProperty("--tilt-y");
       target.style.removeProperty("--magnet-x");
@@ -753,11 +766,13 @@ function route() {
 
   if (view === "category") {
     renderCategory(categoryId);
+    scrollLibraryIntoView();
     return;
   }
 
   if (view === "rom") {
     renderRom(categoryId, romId);
+    scrollLibraryIntoView();
     return;
   }
 

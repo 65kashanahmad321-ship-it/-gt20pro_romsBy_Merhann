@@ -81,7 +81,7 @@ body::after {
     conic-gradient(from 180deg at 30% 18%, rgba(255, 111, 152, 0.34), transparent, rgba(85, 217, 255, 0.18), transparent),
     linear-gradient(135deg, transparent 14%, rgba(255, 211, 90, 0.09), transparent 42%),
     linear-gradient(235deg, transparent 18%, rgba(69, 240, 173, 0.1), transparent 48%);
-  filter: blur(28px);
+  filter: blur(18px);
   transform: translate3d(var(--ambient-x, 0), var(--ambient-y, 0), 0);
   transition: transform 1200ms ease;
   will-change: transform;
@@ -926,6 +926,52 @@ h3 {
   padding: 22px 0 34px;
   color: var(--faint);
   font-size: 0.9rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .interactive-tilt,
+  .card,
+  .button,
+  .back-button,
+  .topnav a {
+    will-change: transform;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  :root {
+    --glass-blur: blur(10px) saturate(120%);
+    --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.26);
+    --shadow-deep: 0 18px 48px rgba(0, 0, 0, 0.38);
+  }
+
+  .scene-lighting {
+    filter: blur(18px);
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .phone-showcase,
+  .card,
+  .button,
+  .back-button,
+  .topnav a {
+    transform: none;
+  }
+
+  .phone-showcase::after,
+  .card::after,
+  .detail-card::after,
+  .option-card::after,
+  .support-panel::after,
+  .library-panel::after {
+    opacity: 0.36;
+  }
+
+  body::after {
+    box-shadow: none;
+  }
 }
 
 .reveal,
