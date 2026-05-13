@@ -393,7 +393,11 @@ const viewEyebrow = document.querySelector("#viewEyebrow");
 const viewTitle = document.querySelector("#viewTitle");
 const viewSubtitle = document.querySelector("#viewSubtitle");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const supportsFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 let revealObserver;
+let scrollFrame = 0;
+let pointerFrame = 0;
+let latestPointerEvent = null;
 
 function escapeHtml(value) {
   return String(value)
@@ -657,6 +661,56 @@ function updateScrollProgress() {
   document.documentElement.style.setProperty("--scroll-progress", `${progress}%`);
 }
 
+function scheduleScrollProgress() {
+  if (scrollFrame) return;
+  scrollFrame = window.requestAnimationFrame(() => {
+    scrollFrame = 0;
+    updateScrollProgress();
+  });
+}
+
+function updatePointerEffects(event) {
+  const width = window.innerWidth || 1;
+  const height = window.innerHeight || 1;
+  const ambientX = ((event.clientX / width) - 0.5) * 12;
+  const ambientY = ((event.clientY / height) - 0.5) * 10;
+  document.documentElement.style.setProperty("--ambient-x", `${ambientX}px`);
+  document.documentElement.style.setProperty("--ambient-y", `${ambientY}px`);
+
+  const interactive = event.target.closest(".interactive-tilt, .card");
+  if (interactive) {
+    const rect = interactive.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    interactive.style.setProperty("--tilt-x", `${(x - 0.5) * 4.5}deg`);
+    interactive.style.setProperty("--tilt-y", `${(0.5 - y) * 4.5}deg`);
+    interactive.style.setProperty("--glare-x", `${x * 100}%`);
+    interactive.style.setProperty("--glare-y", `${y * 100}%`);
+  }
+
+  const magnetic = event.target.closest(".button, .back-button, .topnav a");
+  if (magnetic) {
+    const rect = magnetic.getBoundingClientRect();
+    const x = event.clientX - (rect.left + rect.width / 2);
+    const y = event.clientY - (rect.top + rect.height / 2);
+    magnetic.style.setProperty("--magnet-x", `${x * 0.06}px`);
+    magnetic.style.setProperty("--magnet-y", `${y * 0.06}px`);
+    magnetic.style.setProperty("--glare-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+    magnetic.style.setProperty("--glare-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+  }
+}
+
+function schedulePointerEffects(event) {
+  latestPointerEvent = event;
+  if (pointerFrame) return;
+
+  pointerFrame = window.requestAnimationFrame(() => {
+    pointerFrame = 0;
+    if (!latestPointerEvent) return;
+    updatePointerEffects(latestPointerEvent);
+  });
+}
+
 function initMotionSystem() {
   document.documentElement.classList.add("motion-ready");
   hydrateMotion(document);
@@ -664,40 +718,13 @@ function initMotionSystem() {
 
   if (prefersReducedMotion) return;
 
-  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("scroll", scheduleScrollProgress, { passive: true });
+
+  if (!supportsFinePointer) return;
 
   document.addEventListener(
     "pointermove",
-    (event) => {
-      const width = window.innerWidth || 1;
-      const height = window.innerHeight || 1;
-      const ambientX = ((event.clientX / width) - 0.5) * 24;
-      const ambientY = ((event.clientY / height) - 0.5) * 18;
-      document.documentElement.style.setProperty("--ambient-x", `${ambientX}px`);
-      document.documentElement.style.setProperty("--ambient-y", `${ambientY}px`);
-
-      const interactive = event.target.closest(".interactive-tilt, .card");
-      if (interactive) {
-        const rect = interactive.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width;
-        const y = (event.clientY - rect.top) / rect.height;
-        interactive.style.setProperty("--tilt-x", `${(x - 0.5) * 7}deg`);
-        interactive.style.setProperty("--tilt-y", `${(0.5 - y) * 7}deg`);
-        interactive.style.setProperty("--glare-x", `${x * 100}%`);
-        interactive.style.setProperty("--glare-y", `${y * 100}%`);
-      }
-
-      const magnetic = event.target.closest(".button, .back-button, .topnav a");
-      if (magnetic) {
-        const rect = magnetic.getBoundingClientRect();
-        const x = event.clientX - (rect.left + rect.width / 2);
-        const y = event.clientY - (rect.top + rect.height / 2);
-        magnetic.style.setProperty("--magnet-x", `${x * 0.1}px`);
-        magnetic.style.setProperty("--magnet-y", `${y * 0.1}px`);
-        magnetic.style.setProperty("--glare-x", `${((event.clientX - rect.left) / rect.width) * 100}%`);
-        magnetic.style.setProperty("--glare-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
-      }
-    },
+    schedulePointerEffects,
     { passive: true },
   );
 
