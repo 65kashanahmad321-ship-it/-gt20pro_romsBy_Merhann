@@ -657,8 +657,8 @@ function hydrateMotion(root = document) {
 
 function updateScrollProgress() {
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollable <= 0 ? 0 : (window.scrollY / scrollable) * 100;
-  document.documentElement.style.setProperty("--scroll-progress", `${progress}%`);
+  const progress = scrollable <= 0 ? 0 : window.scrollY / scrollable;
+  document.documentElement.style.setProperty("--scroll-progress-scale", String(progress));
 }
 
 function scheduleScrollProgress() {
@@ -670,13 +670,6 @@ function scheduleScrollProgress() {
 }
 
 function updatePointerEffects(event) {
-  const width = window.innerWidth || 1;
-  const height = window.innerHeight || 1;
-  const ambientX = ((event.clientX / width) - 0.5) * 12;
-  const ambientY = ((event.clientY / height) - 0.5) * 10;
-  document.documentElement.style.setProperty("--ambient-x", `${ambientX}px`);
-  document.documentElement.style.setProperty("--ambient-y", `${ambientY}px`);
-
   const interactive = event.target.closest(".interactive-tilt, .card");
   if (interactive) {
     const rect = interactive.getBoundingClientRect();

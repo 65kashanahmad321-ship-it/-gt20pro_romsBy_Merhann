@@ -64,11 +64,14 @@ body::after {
   top: 0;
   left: 0;
   z-index: 80;
-  width: var(--scroll-progress, 0%);
+  width: 100%;
   height: 3px;
   pointer-events: none;
   background: linear-gradient(90deg, var(--rose), var(--gold), var(--green), var(--cyan));
   box-shadow: 0 0 18px rgba(255, 111, 152, 0.5);
+  transform: scaleX(var(--scroll-progress-scale, 0));
+  transform-origin: left center;
+  will-change: transform;
   content: "";
 }
 
@@ -82,9 +85,7 @@ body::after {
     linear-gradient(135deg, transparent 14%, rgba(255, 211, 90, 0.09), transparent 42%),
     linear-gradient(235deg, transparent 18%, rgba(69, 240, 173, 0.1), transparent 48%);
   filter: blur(18px);
-  transform: translate3d(var(--ambient-x, 0), var(--ambient-y, 0), 0);
-  transition: transform 1200ms ease;
-  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 a {
@@ -170,9 +171,16 @@ a {
   display: flex;
   gap: 7px;
   padding: 5px;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.06);
+}
+
+.topnav::-webkit-scrollbar {
+  display: none;
 }
 
 .topnav a {
@@ -240,7 +248,7 @@ figure {
 h1 {
   max-width: 780px;
   margin-bottom: 18px;
-  font-size: 4.65rem;
+  font-size: clamp(2.65rem, 8vw, 4.65rem);
   line-height: 0.97;
   letter-spacing: 0;
 }
@@ -278,8 +286,6 @@ h3 {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 850;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .hero-actions,
@@ -315,8 +321,7 @@ h3 {
   transition:
     transform 180ms ease,
     background 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+    border-color 180ms ease;
 }
 
 .button::after,
@@ -386,8 +391,6 @@ h3 {
     linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.055)),
     rgba(255, 255, 255, 0.045);
   box-shadow: var(--shadow-deep);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
   transform:
     rotateX(var(--tilt-y, 0deg))
     rotateY(var(--tilt-x, 0deg))
@@ -395,8 +398,7 @@ h3 {
   transform-style: preserve-3d;
   transition:
     transform 260ms ease,
-    border-color 260ms ease,
-    box-shadow 260ms ease;
+    border-color 260ms ease;
 }
 
 .phone-showcase::after,
@@ -416,7 +418,7 @@ h3 {
 }
 
 .phone-showcase {
-  min-height: 540px;
+  min-height: clamp(24rem, 46vw, 33.75rem);
   border-radius: 28px;
   padding: 22px;
 }
@@ -424,7 +426,7 @@ h3 {
 .phone-showcase img {
   display: block;
   width: 100%;
-  height: 500px;
+  height: clamp(20rem, 42vw, 31.25rem);
   object-fit: contain;
   transform: translateZ(44px);
 }
@@ -466,8 +468,6 @@ h3 {
     linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.045)),
     rgba(255, 255, 255, 0.045);
   box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(12px) saturate(130%);
-  -webkit-backdrop-filter: blur(12px) saturate(130%);
 }
 
 .showcase-strip span {
@@ -566,8 +566,6 @@ h3 {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.15),
     0 12px 34px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(12px) saturate(130%);
-  -webkit-backdrop-filter: blur(12px) saturate(130%);
 }
 
 .card {
@@ -583,8 +581,7 @@ h3 {
   transition:
     transform 240ms ease,
     border-color 240ms ease,
-    background 240ms ease,
-    box-shadow 240ms ease;
+    background 240ms ease;
 }
 
 .card:hover,
@@ -845,8 +842,6 @@ h3 {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.055);
   text-align: center;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .empty-state div {
@@ -897,8 +892,6 @@ h3 {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.07);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .upi-box span {
@@ -1017,10 +1010,6 @@ html.motion-ready .reveal-item.is-visible {
     padding-top: 38px;
   }
 
-  h1 {
-    font-size: 3.35rem;
-  }
-
   .hero-copy {
     max-width: none;
   }
@@ -1056,17 +1045,29 @@ html.motion-ready .reveal-item.is-visible {
     font-size: 0.72rem;
   }
 
-  h1 {
-    font-size: 2.5rem;
-  }
-
   .hero-copy p:not(.eyebrow),
   #viewSubtitle {
     font-size: 0.98rem;
   }
 
+  .hero {
+    padding-top: 28px;
+  }
+
+  .hero-metrics {
+    gap: 8px;
+  }
+
+  .hero-metrics span,
+  .chip,
+  .count-pill,
+  .status-pill {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .phone-showcase img {
-    height: 360px;
+    height: clamp(18rem, 92vw, 22.5rem);
   }
 
   .library-panel,
